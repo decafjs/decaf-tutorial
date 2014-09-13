@@ -1,0 +1,39 @@
+{
+    "name"         : "decaf-example",
+    "version"      : "0.0.1",
+    "authors"      : [
+        "Mike Schwartz <mike@moduscreate.com>"
+    ],
+    "description"  : "Example WWW App using DecafJS",
+    "main"         : "main.js",
+    "keywords"     : [
+        "tutorial",
+        "rhino",
+        "JavaScript",
+        "Sync"
+    ],
+    "license"      : "MIT",
+    "homepage"     : "https://github.com/decafjs/decaf-example",
+    "private"      : "false",
+    "dependencies" : {
+        "decaf"                             : "git://github.com/decafjs/decaf#master",
+        "decaf-jolt"                        : "git://github.com/decafjs/decaf-jolt#master",
+        "decaf-hoganjs"                     : "git://github.com/decafjs/decaf-hoganjs#master",
+        "decaf-mongodb"                     : "git://github.com/decafjs/decaf-mongodb#master",
+        "decaf-email"                       : "git://github.com/decafjs/decaf-email#master",
+        "decaf-image"                       : "git://github.com/decafjs/decaf-image#master",
+        "jquery"                            : "2.x",
+        "jquery-cookie"                     : "1.x",
+        "jquery-searchable"                 : "1.x",
+        "jquery-file-upload"                : "9.x",
+        "summernote"                        : "0.5.x",
+        "blockui"                           : "v2.65",
+        "bootstrap"                         : "3.1",
+        "bootbox"                           : "4.x",
+        "eonasdan-bootstrap-datetimepicker" : "3.x",
+        "bootstrap3-typeahead"              : "3.x",
+        "mobile-detect"                     : "0.x",
+        "moment"                            : "2.x",
+        "accounting"                        : "0.x"
+    }
+}
