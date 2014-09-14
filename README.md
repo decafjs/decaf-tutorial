@@ -198,7 +198,7 @@ I've created a views/common directory that has a header.hbs and footer.hbs.  For
 
 _header.hbs_
 
-```mustache
+```handlebars
 <!doctype html>
 <html>
 <head>
@@ -212,7 +212,7 @@ _header.hbs_
 So the document will contain a title member that will be the <title> and in the <h1> in the body.
  
 _footer.hbs_
-```mustache
+```handlebars
 <h1>Footer goes here.</h1>
 </body>
 </html>
@@ -223,7 +223,7 @@ The footer template requires no members set in the document.
 I created a views/Home.hbs as well.  This is the full page template that is rendered for the home page.  Note there is no logic in the template.
 
 _Home.hbs_
-```mustache
+```handlebars
 {{! Created by mschwartz 9/13/14 }}
 {{> common/header }}
 <p>Today is {{date}}</p>
