@@ -1,5 +1,6 @@
 Tutorial: Example WWW App using decaf
 =====================================
+By Mike Schwartz <mike@moduscreate.com>
 
 This tutorial will walk you through using bower to install the prerequisites for serving dynamic content via HTTP with decafjs.
 
@@ -161,3 +162,27 @@ views/about/contact.hbs
 views/about/jobs.hbs
 etc.
 ```
+
+For the first test, I created a views/test.hbs file:
+
+```mustache
+{{#foo}}
+    {{.}}
+{{/foo}}
+```
+
+The foo member of the object passed to the template's render() function is iterated and the values printed. Here's what happens when we run the program:
+
+```
+$ ./bower_components/decaf/bin/decaf main.js
+    1
+    2
+    3
+
+
+exiting
+```
+
+The code up to this point of the tutorial is tagged phase1 in this repository.  Note that this README.md file ends right here in the tag.
+
+
