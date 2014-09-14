@@ -19,6 +19,8 @@
         "decaf"        : "decafjs/decaf#master",
         "decaf-jolt"   : "decafjs/decaf-jolt#master",
         "decaf-hoganjs": "decafjs/decaf-hoganjs#master",
-        "decaf-mongodb": "decafjs/decaf-mongodb#master"
+        "decaf-mongodb": "decafjs/decaf-mongodb#master",
+        "jquery"       : "2.x",
+        "bootstrap"    : "3.x"
     }
 }
