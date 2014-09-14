@@ -121,7 +121,7 @@ decaf              decaf-hoganjs      decaf-jst          decaf-mongodb
 decaf-coffeescript decaf-jolt         decaf-less         hogan
 ```
 
-There are more modules installed than we specified in bower.json, but this is expected.  For example, decaf-jolt caused decaf-jst, decaf-less, and decaf-coffeescript to be installed; those will be require()ed by jolt when we use it.  Similarly, hogan was installed because decaf-hogan depends on it.
+There are more modules installed than we specified in bower.json, but this is expected.  For example, decaf-jolt caused decaf-jst, decaf-less, and decaf-coffeescript to be installed; those will be require()ed by JOLT when we use it.  Similarly, hogan was installed because decaf-hogan depends on it.
 
 We won't want to commit the files in the bower_components directory, so we add bower_components to the project's .gitignore file.  We can use bower to install them at will.
 
@@ -230,7 +230,7 @@ _Home.hbs_
 {{> common/footer }}
 ```
 
-The views are all set up and ready to go for this phase of the tutorial.  Now we need to set up the HTTP server to respond to the / URL and render this page.  We'll use JOLT, a server-side routing framework that sits on top of Decaf's minimalistic (NodeJS style) HTTP server.  Jolt is documented here: https://github.com/decafjs/decaf-jolt
+The views are all set up and ready to go for this phase of the tutorial.  Now we need to set up the HTTP server to respond to the / URL and render this page.  We'll use JOLT, a server-side routing framework that sits on top of Decaf's minimalistic (NodeJS style) HTTP server.  JOLT is documented here: https://github.com/decafjs/decaf-jolt
 
 The first thing I did was to modify main.js.  It now looks like this:
 
@@ -260,3 +260,9 @@ var listenAddress = '127.0.0.1';
 app.listen(9090, listenAddress);
 console.log('HTTP server listening at http://' + listenAddress + ':9090');
 ```
+
+Application, StaticFile, SjsFile, and SjsServer are classes provided by JOLT.  The first thing we do is instantiate an Application object, app.  We then configure the app to serve /favicon.ico as a static file, and / will invoke the controllers/Home.sjs program.  Then we start the app listening for incoming HTTP requests.  It is rather straight forward.  We'll add app.verb() calls to add more routes as we build out the app.  We'll deal with 404 in the next phase of the tutorial.
+ 
+> SJS (Server-side JavaScript) programs are plain old synchronous JavaScript files.  They are compiled as functions the first time  they are invoked.  For the second and successive invocations, the functions are just called, so it is very fast.  If you edit or change the .sjs file on disk, however, it will be reloaded and compiled as a function again, so you can immediately see your changes take effect without having to restart the server.
+
+> TemplateManager works in a similar manner.  It is loaded and compiled the first time it is accessed.  If you edit a template or partial on disk, it will be reloaded and compiled again.  Otherwise the compiled template is reused over and over.**   
