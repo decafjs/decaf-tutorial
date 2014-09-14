@@ -265,4 +265,38 @@ Application, StaticFile, SjsFile, and SjsServer are classes provided by JOLT.  T
  
 > SJS (Server-side JavaScript) programs are plain old synchronous JavaScript files.  They are compiled as functions the first time  they are invoked.  For the second and successive invocations, the functions are just called, so it is very fast.  If you edit or change the .sjs file on disk, however, it will be reloaded and compiled as a function again, so you can immediately see your changes take effect without having to restart the server.
 
-> TemplateManager works in a similar manner.  It is loaded and compiled the first time it is accessed.  If you edit a template or partial on disk, it will be reloaded and compiled again.  Otherwise the compiled template is reused over and over.**   
+> TemplateManager works in a similar manner.  It is loaded and compiled the first time it is accessed.  If you edit a template or partial on disk, it will be reloaded and compiled again.  Otherwise the compiled template is reused over and over.
+
+> You will be restarting the server only when you modify a file you require() or if you add verbs to your app.
+
+All that's left is to examine the implementation of the Home controller.
+
+**controllers/Home.sjs**
+```javascript
+/**
+ * Created by mschwartz on 9/13/14.
+ */
+
+/*global require, req, res */
+
+var TemplateManager = require('decaf-hoganjs').TemplateManager,
+    views = new TemplateManager('views');
+
+var document = {
+    title: 'Home Page',     // for <title> tag
+        date: new Date().toLocaleDateString()
+};
+
+res.send(views['Home'].render(document, views));
+```
+
+We've already seen the TemplateManager instantiated in our test in phase 1.  All we really have to do here is to create our document object and then send the rendered hogan template to the browser.
+
+> res.send() is fairly smart.  If you pass it a string, as is the result of the render() function, it sends content-type: text/html.  If you pass it an object, it sends it as JSON and content-type: application/json.  
+
+Here's a screen shot of the page served.
+
+![Screen shot](https://github.com/images/phase2_screenshot1.png)
+
+We've come to the end of phase 2 of this tutorial.  I've tagged the repository to this point as phase2.
+
