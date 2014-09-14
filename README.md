@@ -296,7 +296,7 @@ We've already seen the TemplateManager instantiated in our test in phase 1.  All
 
 Here's a screen shot of the page served.
 
-![Screen shot](https://github.com/images/phase2_screenshot1.png)
+![Screen shot](https://raw.githubusercontent.com/decafjs/decaf-tutorial/master/images/phase2_screenshot1.png)
 
 We've come to the end of phase 2 of this tutorial.  I've tagged the repository to this point as phase2.
 
