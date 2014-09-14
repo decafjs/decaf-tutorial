@@ -377,11 +377,11 @@ app.listen(9090, listenAddress);
 console.log('HTTP server listening at http://' + listenAddress + ':9090');
 ```
 
-1. Note that in JOLT there is a StaticFile and a StaticServer.  StaticFile serves a single file given the specified verb.  StaticServer serves all files within the specified directory if the verb (URL starts with) is requested.  This will become clearer as I expand on the templates to include static assets.
+> 1. In JOLT there is a StaticFile and a StaticServer.  StaticFile serves a single file given the specified verb.  StaticServer serves all files within the specified directory if the verb (URL starts with) is requested.  This will become clearer as I expand on the templates to include static assets.
  
-2. The improved main.js serves static .css, .js, and image files from dedicated directories.  It also serves files from the bower_components directory - we'll need to do that to make a client page that includes bower and jQuery.  
+> 2. The improved main.js serves static .css, .js, and image files from dedicated directories.  It also serves files from the bower_components directory - we'll need to do that to make a client page that includes bower and jQuery.  
 
-3. I added a verb called "Page" that invokes a Page controller.  I'll be implementing a primitive CMS involving the Page verb.  More on that later.
+> 3. I added a verb called "Page" that invokes a Page controller.  I'll be implementing a primitive CMS involving the Page verb.  More on that later.
 
+> 4. In order to support an API callable via AJAX requests, I added an API verb that executes requested .sjs files from within the api directory upon request.
 
- 
