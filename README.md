@@ -13,30 +13,32 @@ The first thing we need to do is to create a bower.json file in the root of the 
 
 to create the initial bower.json file, or you can create it from scratch - we'll create ours from scratch here.
 
-We're going to demonstrate 
+We're going to demonstrate creating our own bower.json.  I've stripped it down to as minimal a starting point as possible.
+
+=bower.json:=
 ```javascript
 {
-    "name"         : "decaf-tutorial",
-    "version"      : "0.0.1",
-    "authors"      : [
+    "name"        : "decaf-tutorial",
+    "version"     : "0.0.1",
+    "authors"     : [
         "Mike Schwartz <mike@moduscreate.com>"
     ],
-    "description"  : "Tutorial: Example WWW App using DecafJS",
-    "main"         : "main.js",
-    "keywords"     : [
+    "description" : "Tutorial: Example WWW App using DecafJS",
+    "main"        : "main.js",
+    "keywords"    : [
         "tutorial",
         "rhino",
         "JavaScript",
         "Sync"
     ],
-    "license"      : "MIT",
-    "homepage"     : "https://github.com/decafjs/decaf-tutorial",
-    "private"      : "false",
-    "dependencies" : {
-        "decaf"                             : "git://github.com/decafjs/decaf#master",
-        "decaf-jolt"                        : "git://github.com/decafjs/decaf-jolt#master",
-        "decaf-hoganjs"                     : "git://github.com/decafjs/decaf-hoganjs#master",
-        "decaf-mongodb"                     : "git://github.com/decafjs/decaf-mongodb#master"
+    "license"     : "MIT",
+    "homepage"    : "https://github.com/decafjs/decaf-tutorial",
+    "private"     : "false",
+    "dependencies": {
+        "decaf"        : "decafjs/decaf#master",
+        "decaf-jolt"   : "decafjs/decaf-jolt#master",
+        "decaf-hoganjs": "decafjs/decaf-hoganjs#master",
+        "decaf-mongodb": "decafjs/decaf-mongodb#master"
     }
 }
 ```
