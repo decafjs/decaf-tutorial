@@ -15,7 +15,7 @@ to create the initial bower.json file, or you can create it from scratch - we'll
 
 We're going to demonstrate creating our own bower.json.  I've stripped it down to as minimal a starting point as possible.
 
-=bower.json:=
+==bower.json:==
 ```javascript
 {
     "name"        : "decaf-tutorial",
