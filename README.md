@@ -209,7 +209,7 @@ _header.hbs_
 <h1>{{title}</h1>
 ```
 
-So the document will contain a title member that will be the <title> and in the <h1> in the body.
+So the document will contain a title member that will be the &lt;title> and in the &lt;h1> in the body.
  
 _footer.hbs_
 ```handlebars
