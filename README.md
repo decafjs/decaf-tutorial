@@ -186,3 +186,77 @@ exiting
 The code up to this point of the tutorial is tagged phase1 in this repository.  Note that this README.md file ends right here in the tag.
 
 
+## Phase 2
+
+You may want to review the documentation for decaf-hoganjs before reading further.  It's located at https://github.com/decafjs/decaf-hoganjs.  It explains how the templates work.
+
+The short version is that we separate business logic from the templates.  We do all the loops, database queries, document retrievals, etc., in JavaScript code and pass those to the template via the views[template_name].render() method.
+
+In fact, the entire page we render will be a template that includes partials (like header, footer, navigation) to provide consistent look and feel.
+
+I've created a views/common directory that has a header.hbs and footer.hbs.  For discussion purposes, the object passed to the template render() function will be called a document - not to be confused with the browser-side document/DOM.
+
+_header.hbs_
+
+```mustache
+<!doctype html>
+<html>
+<head>
+    <title>{{title}}</title>
+</head>
+</html>
+<body>
+<h1>{{title}</h1>
+```
+
+So the document will contain a title member that will be the <title> and in the <h1> in the body.
+ 
+_footer.hbs_
+```mustache
+<h1>Footer goes here.</h1>
+</body>
+</html>
+```
+
+The footer template requires no members set in the document.
+
+I created a views/Home.hbs as well.  This is the full page template that is rendered for the home page.  Note there is no logic in the template.
+
+_Home.hbs_
+```mustache
+{{! Created by mschwartz 9/13/14 }}
+{{> common/header }}
+<p>Today is {{date}}</p>
+{{> common/footer }}
+```
+
+The views are all set up and ready to go for this phase of the tutorial.  Now we need to set up the HTTP server to respond to the / URL and render this page.  We'll use JOLT, a server-side routing framework that sits on top of Decaf's minimalistic (NodeJS style) HTTP server.  Jolt is documented here: https://github.com/decafjs/decaf-jolt
+
+The first thing I did was to modify main.js.  It now looks like this:
+
+```javascript
+/**
+ * Created by mschwartz on 9/13/14.
+ */
+
+/*global require */
+
+var Application = require('decaf-jolt').Application,
+    StaticFile = require('decaf-jolt').StaticFile,
+    SjsFile = require('decaf-jolt').SjsFile,
+    SjsServer = require('decaf-jolt').SjsServer,
+    app = new Application();
+
+// serve static/favicon.ico when URL is /favicon.ico
+app.verb('favicon.ico', StaticFile('static/favicon.ico'));
+
+// serve / URL via Home controller
+app.verb('/', SjsFile('controllers/Home.sjs'));
+
+// '127.0.0.1' is localhost only
+// '0.0.0.0' to listen on all interfaces
+var listenAddress = '127.0.0.1';
+
+app.listen(9090, listenAddress);
+console.log('HTTP server listening at http://' + listenAddress + ':9090');
+```
