@@ -206,7 +206,7 @@ _header.hbs_
 </head>
 </html>
 <body>
-<h1>{{title}</h1>
+<h1>{{title}}</h1>
 ```
 
 So the document will contain a title member that will be the &lt;title> and in the &lt;h1> in the body.
